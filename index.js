@@ -15,11 +15,15 @@ app.get("/poll", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.send("Login page will be here");
+  res.render("login");
 });
 
 app.get("/register", (req, res) => {
-  res.send("Registration");
+  res.render("register");
+});
+
+app.get("/secret", (req, res) => {
+  res.render("secret");
 });
 
 const PORT = process.env.PORT || 3000;
