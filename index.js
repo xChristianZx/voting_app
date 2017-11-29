@@ -7,12 +7,13 @@ const express = require("express"),
   session = require("express-session"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose"),
-  User = require("./models/user");
+  User = require("./models/user"),
+  keys = require("./config/keys");
 
 mongoose.Promise = global.Promise;
 
 const app = express();
-mongoose.connect("mongodb://localhost/voting_app", { useMongoClient: true });
+mongoose.connect(keys.mongoURI, { useMongoClient: true });
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
