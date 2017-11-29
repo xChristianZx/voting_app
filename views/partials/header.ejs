@@ -21,21 +21,27 @@
                 <a class="item" href="/">VoterZ</a>
             </div>
             <div class="right menu">
-                <a class="item" href="/login">Login</a>
-                <a class="item" href="/register">Register</a>
-                <a class="item" href="/logout">Logout</a>
+                <% if(!currentUser){ %>
+                    <a class="item" href="/login">Login</a>
+                    <a class="item" href="/register">Register</a>
+                    <% } else { %>
+                        <a class="item">Welcome
+                            <%= currentUser.username %>
+                        </a>
+                        <a class="item" href="/logout">Logout</a>
+                        <% } %>
             </div>
         </div>
     </nav>
     <div class="ui container flash-wrapper">
-            <% if(error && error.length > 0) {%>
+        <% if(error && error.length > 0) {%>
             <div class="ui negative message" role="alert">
                 <%= error %>
             </div>
             <% } %>
-            <% if(success && success.length > 0) {%>
-            <div class="ui positive message" role="alert">
-                <%= success %>
-            </div>
-            <% } %>
-        </div>
+                <% if(success && success.length > 0) {%>
+                    <div class="ui positive message" role="alert">
+                        <%= success %>
+                    </div>
+                    <% } %>
+    </div>

@@ -91,7 +91,8 @@ app.get("/login", (req, res) => {
 app.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/secret",    
+    successRedirect: "/secret",
+    successFlash: "Welcome",
     failureRedirect: "/login",
     failureFlash: true
   })
@@ -100,6 +101,7 @@ app.post(
 //LOGOUT
 app.get("/logout", (req, res) => {
   req.logout();
+  req.flash("success", "You have been successfully logged out");
   res.redirect("/");
 });
 
