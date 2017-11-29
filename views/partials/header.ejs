@@ -27,14 +27,14 @@
             </div>
         </div>
     </nav>
-    <div class="">
+    <div class="ui container flash-wrapper">
             <% if(error && error.length > 0) {%>
-            <div class="" role="alert">
+            <div class="ui negative message" role="alert">
                 <%= error %>
             </div>
             <% } %>
             <% if(success && success.length > 0) {%>
-            <div class="" role="alert">
+            <div class="ui positive message" role="alert">
                 <%= success %>
             </div>
             <% } %>
