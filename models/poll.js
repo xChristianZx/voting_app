@@ -2,8 +2,8 @@ const mongoose = require("mongoose"),
   passportLocalMongoose = require("passport-local-mongoose");
 
 const PollSchema = new mongoose.Schema({
-  pollName: String,
-  pollItems: [
+  name: String,
+  items: [
     {
       name: String,
       count: Number
