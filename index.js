@@ -3,6 +3,7 @@ const express = require("express"),
   mongoose = require("mongoose"),
   flash = require("connect-flash"),
   methodOverride = require("method-override"),
+  seedDB = require("./seed"),
   passport = require("passport"),
   session = require("express-session"),
   LocalStrategy = require("passport-local"),
@@ -19,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+
+seedDB();
 
 app.use(
   session({
