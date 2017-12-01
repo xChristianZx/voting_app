@@ -6,7 +6,7 @@ const PollSchema = new mongoose.Schema({
   items: [
     {
       name: String,
-      count: Number
+      count: String
     }
   ],
   author: {
@@ -14,7 +14,7 @@ const PollSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User"
     },
-    username: String
+    username: { type: String, sparse: false }
   }
 });
 

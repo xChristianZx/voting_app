@@ -9,6 +9,7 @@ const express = require("express"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose"),
   User = require("./models/user"),
+  Poll = require("./models/poll"),
   keys = require("./config/keys");
 
 mongoose.Promise = global.Promise;
@@ -59,7 +60,13 @@ app.get("/", (req, res) => {
 
 //POLL
 app.get("/poll", (req, res) => {
-  res.render("poll");
+  Poll.find({}, (err, allPolls) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("poll", { polls: allPolls });
+    }
+  });
 });
 
 //REGISTER
