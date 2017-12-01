@@ -12,9 +12,13 @@ const express = require("express"),
   Poll = require("./models/poll"),
   keys = require("./config/keys");
 
-mongoose.Promise = global.Promise;
+// Requiring Routes
+const indexRoutes = require("./routes/index"),
+  pollRoutes = require('./routes/poll');
+
 
 const app = express();
+mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,85 +48,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/", indexRoutes);
+app.use("/poll", pollRoutes);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Serving on ${PORT}`);
-});
-
-//*********** */
-//  ROUTES
-//*********** */
-
-//HOME
-app.get("/", (req, res) => {
-  res.render("home");
-});
-
-//POLL
-app.get("/poll", (req, res) => {
-  Poll.find({}, (err, allPolls) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("poll", { polls: allPolls });
-    }
-  });
-});
-
-//REGISTER
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-//REGISTER - Create New User
-app.post("/register", (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const newUser = {
-    username: username,
-    password: password
-  };
-  User.register(new User({ username }), password, (err, user) => {
-    if (err) {
-      console.log(err);
-      return res.render("register");
-    }
-    passport.authenticate("local")(req, res, () => {
-      res.redirect("/secret");
-    });
-  });
-});
-
-//LOGIN
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
-//LOGIN-Authenticate
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/secret",
-    successFlash: "Welcome",
-    failureRedirect: "/login",
-    failureFlash: true
-  })
-);
-
-//LOGOUT
-app.get("/logout", (req, res) => {
-  req.logout();
-  req.flash("success", "You have been successfully logged out");
-  res.redirect("/");
-});
-
-const isLoggedIn = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-};
-
-app.get("/secret", isLoggedIn, (req, res) => {
-  res.render("secret");
 });
