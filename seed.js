@@ -5,10 +5,10 @@ const data = [
   {
     pollName: "Best Soda",
     items: [
-      { name: "Coke", count: "1" },
-      { name: "Sprite", count: "2" },
-      { name: "Dr. Pepper", count: "3" },
-      { name: "Root Beer", count: "4" }
+      { name: "Coke", count: 1 },
+      { name: "Sprite", count: 2 },
+      { name: "Dr. Pepper", count: 3 },
+      { name: "Root Beer", count: 4 }
     ],
     author: {
       username: "dave"
@@ -17,10 +17,10 @@ const data = [
   {
     pollName: "Best Hero",
     items: [
-      { name: "Superman", count: "0" },
-      { name: "Batman", count: "0" },
-      { name: "Catwoman", count: "0" },
-      { name: "Spiderman", count: "0" }
+      { name: "Superman", count: 0 },
+      { name: "Batman", count: 0 },
+      { name: "Catwoman", count: 0 },
+      { name: "Spiderman", count: 0 }
     ],
     author: {
       username: "dave"
@@ -29,10 +29,10 @@ const data = [
   {
     pollName: "Best Sandwich",
     items: [
-      { name: "Reuben", count: "0" },
-      { name: "Turkey & Avocado", count: "0" },
-      { name: "Ham", count: "0" },
-      { name: "Tuna", count: "0" }
+      { name: "Reuben", count: 0 },
+      { name: "Turkey & Avocado", count: 0 },
+      { name: "Ham", count: 0 },
+      { name: "Tuna", count: 0 }
     ],
     author: {
       username: "dave"
