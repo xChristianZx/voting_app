@@ -28,6 +28,7 @@ app.use(flash());
 
 seedDB();
 
+//express session
 app.use(
   session({
     secret: "Duke was here",

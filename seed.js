@@ -3,23 +3,29 @@ const mongoose = require("mongoose"),
 
 const data = [
   {
-    name: "Best Soda",
+    pollName: "Best Soda",
     items: [
       { name: "Coke", count: "1" },
       { name: "Sprite", count: "2" },
       { name: "Dr. Pepper", count: "3" },
       { name: "Root Beer", count: "4" }
-    ]
+    ],
+    author: {
+      username: "dave"
+    }
+  },
+  {
+    pollName: "Best Hero",
+    items: [
+      { name: "Superman", count: "0" },
+      { name: "Batman", count: "0" },
+      { name: "Catwoman", count: "0" },
+      { name: "Spiderman", count: "0" }
+    ],
+    author: {
+      username: "dave"
+    }
   }
-  //   {
-  //     name: "Best Hero",
-  //     items: [
-  //       { name: "Superman", count: "0" },
-  //       { name: "Batman", count: "0" },
-  //       { name: "Catwoman", count: "0" },
-  //       { name: "Spiderman", count: "0" }
-  //     ]
-  //   },
   //   {
   //     name: "Best Sandwich",
   //     items: [
