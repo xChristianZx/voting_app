@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const Poll = require("../models/poll");
+const middleware = require("../middleware/middleware");
 
 //POLL
 router.get("/", (req, res) => {
@@ -14,13 +15,13 @@ router.get("/", (req, res) => {
   });
 });
 //New Poll Page
-router.get("/new", (req, res) => {
+router.get("/new", middleware.isLoggedIn, (req, res) => {
   res.render("poll/new");
 });
 
 //Create new Poll
 router.post("/", (req, res) => {
-  const name = req.body.name;
+  const name = req.body.pollName;
   const items = req.body.item;
   console.log(req.body);
   console.log("items:", items);
@@ -32,7 +33,7 @@ router.post("/", (req, res) => {
     username: req.user.username
   };
   const newPoll = {
-    name,
+    pollName: name,
     items: itemsList,
     author
   };
@@ -44,5 +45,7 @@ router.post("/", (req, res) => {
     }
   });
 });
+
+
 
 module.exports = router;
