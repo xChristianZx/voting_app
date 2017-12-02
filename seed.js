@@ -25,35 +25,32 @@ const data = [
     author: {
       username: "dave"
     }
+  },
+  {
+    pollName: "Best Sandwich",
+    items: [
+      { name: "Reuben", count: "0" },
+      { name: "Turkey & Avocado", count: "0" },
+      { name: "Ham", count: "0" },
+      { name: "Tuna", count: "0" }
+    ],
+    author: {
+      username: "dave"
+    }
   }
-  //   {
-  //     name: "Best Sandwich",
-  //     items: [
-  //       { name: "Reuben", count: "0" },
-  //       { name: "Turkey & Avocado", count: "0" },
-  //       { name: "Ham", count: "0" },
-  //       { name: "Tuna", count: "0" }
-  //     ]
-  //   }
 ];
 
 const seedDB = () => {
   Poll.remove({}, err => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("removed polls");
-      data.forEach(seed => {
-        Poll.create(seed, (err, poll) => {
-          if (err) {
-            console.log(err);
-          } else {
-            console.log("added Poll");
-            poll.save();
-          }
-        });
+    if (err) throw err;
+    console.log("removed polls");
+    data.forEach(seed => {
+      Poll.create(seed, (err, poll) => {
+        if (err) throw err;
+        console.log("added Poll");
+        poll.save();
       });
-    }
+    });
   });
 };
 
