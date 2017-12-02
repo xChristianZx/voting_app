@@ -5,21 +5,14 @@
         <form class="ui form" action="/poll/new" method="POST">
             <h4 class="ui dividing header">Poll Question</h4>
             <div class="field required">
-                <input type="text" name="name" placeholder="What is the airspeed velocity of an unladen swallow?">
+                <input type="text" name="name" value="<%=poll.pollName %>">
             </div>                
             <h4 class="ui dividing header">Items</h4>
-            <div class="field required">                
-                <input type="text" name="item" placeholder="34 mph">
-            </div>
-            <div class="field required">
-                <input type="text" name="item" placeholder="24 mph">
-            </div>
-            <div class="field">
-                <input type="text" name="item" placeholder="44 mph">
-            </div>
-            <div class="field">
-                <input type="text" name="item" placeholder="What do you mean? African or European swallow?">
-            </div>
+            <% poll.items.forEach(item => { %>
+                <div class="field required">                
+                    <input type="text" name="item" value="<%= item.name %>">
+                </div>
+            <% }) %>            
             <input class="ui button" type="submit">
             <a href="/poll">Back</a>
         </form>

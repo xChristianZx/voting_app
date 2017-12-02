@@ -14,6 +14,7 @@ router.get("/", (req, res) => {
     }
   });
 });
+
 //New Poll Page
 router.get("/new", middleware.isLoggedIn, (req, res) => {
   res.render("poll/new");
@@ -46,6 +47,11 @@ router.post("/", (req, res) => {
   });
 });
 
-
+router.get("/:id/edit", (req, res) => {
+  Poll.findById(req.params.id, (err, foundPoll) => {
+    if (err) throw err;
+    res.render("poll/edit", { poll: foundPoll });
+  });
+});
 
 module.exports = router;
