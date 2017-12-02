@@ -1,19 +1,26 @@
 <% include ../partials/header %>
     <div class="ui container">
         <h1 class="ui header center aligned">Polls</h1>
-        <h2 class="ui header center aligned">
-            <%= polls[0].name %>
-        </h2>
-        <% polls[0].items.forEach(item => { %>
-            <p>
-                <%= item.name %>
-            </p>
-            <p>
-                <%= item.count %>
-            </p>
+        <% polls.map((item, i) => { %>
+            <div>
+                <h2 class="ui header center aligned">
+                    <%= polls[i].pollName %>
+                </h2>
+                <h4 class="ui header center aligned">
+                    <em> Created by
+                        <%= polls[i].author.username %>
+                    </em>
+                </h4>
+                <% polls[i].items.map(item => { %>
+                    <p>
+                        <%= item.name %>
+                    </p>
+                    <p>
+                        <%= item.count %>
+                    </p>
+                    <% }) %>
+            </div>
             <% }) %>
     </div>
-
-
 
     <% include ../partials/footer %>
