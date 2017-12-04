@@ -1,8 +1,7 @@
-const mongoose = require("mongoose"),
-  passportLocalMongoose = require("passport-local-mongoose");
+const mongoose = require("mongoose");
 
 const PollSchema = new mongoose.Schema({
-  pollName: {type: String, required: true },
+  pollName: { type: String, required: true },
   items: [
     {
       name: String,
@@ -17,7 +16,5 @@ const PollSchema = new mongoose.Schema({
     username: { type: String }
   }
 });
-
-PollSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("Poll", PollSchema);
