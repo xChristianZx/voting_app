@@ -15,6 +15,9 @@
                     </em>
                 </h4>
                 <a class="ui button" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
+                <form action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
+                <button class="ui button negative">Delete</button>
+                </form>
                 <% polls[i].items.map(item => { %>
                     <p>
                         <%= item.name %>

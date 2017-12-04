@@ -48,7 +48,7 @@ router.post("/", (req, res) => {
 });
 
 // EDIT Poll
-router.get("/:id/edit", middleware.isLoggedIn, (req, res) => {
+router.get("/:id/edit", middleware.checkPollOwnership, (req, res) => {
   Poll.findById(req.params.id, (err, foundPoll) => {
     if (err) throw err;
     res.render("poll/edit", { poll: foundPoll });
@@ -57,10 +57,8 @@ router.get("/:id/edit", middleware.isLoggedIn, (req, res) => {
 
 //UPDATE Poll
 router.put("/:id", (req, res) => {
-  
   console.log("Updated ID:", req.params);
   console.log("Updated Poll:", req.body.poll);
-  
   Poll.findByIdAndUpdate(req.params.id, req.body.poll, (err, updatedPoll) => {
     if (err) throw err;
     res.redirect(`/poll`);
@@ -68,7 +66,7 @@ router.put("/:id", (req, res) => {
 });
 
 // DELETE Poll
-router.delete("/:id", (req, res) => {
+router.delete("/:id", middleware.checkPollOwnership, (req, res) => {
   Poll.findByIdAndRemove(req.params.id, err => {
     if (err) throw err;
     res.redirect("/poll");
