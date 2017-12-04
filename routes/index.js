@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 const User = require("../models/user");
+const middleware = require("../middleware/middleware");
 
 //HOME
 router.get("/", (req, res) => {
@@ -17,17 +18,14 @@ router.get("/register", (req, res) => {
 router.post("/register", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  const newUser = {
-    username: username,
-    password: password
-  };
-  User.register(new User({ username }), password, (err, user) => {
+  const newUser = new User ({username});
+  User.register(newUser, password, (err, user) => {
     if (err) {
       console.log(err);
       return res.render("register");
     }
     passport.authenticate("local")(req, res, () => {
-      res.redirect("/secret");
+      res.redirect("/poll");
     });
   });
 });
@@ -55,14 +53,7 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-const isLoggedIn = (req, res, next) => {
-    if (req.isAuthenticated()) {
-      return next();
-    }
-    res.redirect("/login");
-  };
-
-router.get("/secret", isLoggedIn, (req, res) => {
+router.get("/secret",middleware.isLoggedIn, (req, res) => {
     res.render("secret");
   });
   
