@@ -8,10 +8,10 @@
 					<input type="text" name="poll[pollName]" value="<%=poll.pollName %>">
 				</div>
 				<h4 class="ui dividing header">Items</h4>
-				<% poll.items.map((item,i) => { %>
+				<% poll.items.map((item , i) => { %>
 					<div class="field required">
-						<input type="text" name="poll[items][name]" value="<%= item.name %>">
-						<input type="number" name="poll[items][count]" value="<%= item.count %>">
+						<input type="text" name="poll[items][<%= i %>][name]" value="<%= item.name %>">
+						<input type="number" name="poll[items][<%= i %>][count]" value="<%= item.count %>">
 					</div>
 					<% }) %>
 						<input class="ui button" type="submit">
