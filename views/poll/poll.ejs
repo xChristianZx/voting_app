@@ -14,6 +14,7 @@
                         <%= polls[i].author.username %>
                     </em>
                 </h4>
+                <a href="/poll/<%= polls[i]._id %>">More Info</a>
                 <a class="ui button" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
                 <form action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
                 <button class="ui button negative">Delete</button>

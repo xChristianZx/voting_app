@@ -15,6 +15,28 @@ router.get("/", (req, res) => {
   });
 });
 
+//SHOW
+router.get("/:id", (req, res) => {
+  Poll.findById(req.params.id).exec((err, foundPoll) => {
+    if (err || !foundPoll) {
+      req.flash("error", "Poll not found");
+      res.redirect("back");      
+    } else {
+      res.render("poll/show", { poll: foundPoll });
+    }
+  });
+});
+
+//VOTE
+router.put("/:id", (req, res) => {
+  console.log("Updated ID:", req.params);
+  console.log("Updated Poll:", req.body.poll);
+  Poll.findByIdAndUpdate(req.params.id, req.body.poll, (err, updatedPoll) => {
+    if (err) throw err;
+    res.redirect(`/poll/${req.params.id}`);
+  });
+});
+
 //New Poll Page
 router.get("/new", middleware.isLoggedIn, (req, res) => {
   res.render("poll/new");
