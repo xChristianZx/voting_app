@@ -15,6 +15,11 @@ router.get("/", (req, res) => {
   });
 });
 
+//New Poll Page
+router.get("/new", middleware.isLoggedIn, (req, res) => {
+  res.render("poll/new");
+});
+
 //SHOW
 router.get("/:id", (req, res) => {
   Poll.findById(req.params.id).exec((err, foundPoll) => {
@@ -45,11 +50,6 @@ router.put("/:id", (req, res) => {
       res.redirect(`/poll/${req.params.id}`);
     }
   );
-});
-
-//New Poll Page
-router.get("/new", middleware.isLoggedIn, (req, res) => {
-  res.render("poll/new");
 });
 
 //Create new Poll

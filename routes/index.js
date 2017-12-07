@@ -53,7 +53,7 @@ router.get("/logout", (req, res) => {
   res.redirect("/");
 });
 
-router.get("/secret",middleware.isLoggedIn, (req, res) => {
+router.get("/secret", middleware.isLoggedIn, (req, res) => {
     res.render("secret");
   });
   
