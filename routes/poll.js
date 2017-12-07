@@ -88,7 +88,7 @@ router.get("/:id/edit", middleware.checkPollOwnership, (req, res) => {
 });
 
 //UPDATE Poll
-router.put("/:id", (req, res) => {
+router.put("/:id/edit", (req, res) => {
   console.log("Updated ID:", req.params);
   console.log("Updated Poll:", req.body.poll);
   Poll.findByIdAndUpdate(req.params.id, req.body.poll, (err, updatedPoll) => {
