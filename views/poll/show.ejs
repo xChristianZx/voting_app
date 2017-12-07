@@ -10,10 +10,9 @@
                         <% poll.items.map((item,i) => { %>
                             <div class="field">
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="item" checked="" tabindex="0" class="hidden">
+                                    <input type="radio" name="item" checked="" tabindex="0" class="hidden" value="<%= item._id %>">                                  
                                     <label>
-                                        <%= item.name %>
-                                            <%= item.count %>
+                                        <%= item.name %>                                            
                                     </label>
                                 </div>
                             </div>

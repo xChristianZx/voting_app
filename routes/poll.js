@@ -20,7 +20,7 @@ router.get("/:id", (req, res) => {
   Poll.findById(req.params.id).exec((err, foundPoll) => {
     if (err || !foundPoll) {
       req.flash("error", "Poll not found");
-      res.redirect("back");      
+      res.redirect("back");
     } else {
       res.render("poll/show", { poll: foundPoll });
     }
@@ -30,11 +30,21 @@ router.get("/:id", (req, res) => {
 //VOTE
 router.put("/:id", (req, res) => {
   console.log("Updated ID:", req.params);
-  console.log("Updated Poll:", req.body.poll);
-  Poll.findByIdAndUpdate(req.params.id, req.body.poll, (err, updatedPoll) => {
-    if (err) throw err;
-    res.redirect(`/poll/${req.params.id}`);
-  });
+  console.log("Updated Poll:", req.body);
+  console.log("Voted Item:", req.body.item);
+  const votedItem = req.body.item;
+  Poll.update(
+    { "items._id": votedItem },
+    {
+      $inc: {
+        "items.$.count": 1
+      }
+    },
+    (err, updatedPoll) => {
+      if (err) throw err;
+      res.redirect(`/poll/${req.params.id}`);
+    }
+  );
 });
 
 //New Poll Page
