@@ -5,3 +5,12 @@ li {
 .flash-wrapper {
   padding-bottom: 2rem;
 }
+
+.ui.item.poll-item-wrapper {  
+  border: 1px solid white;
+  padding: .5rem;
+  margin: .5rem;
+}
+.ui.item.poll-item-wrapper:hover {
+  border: 1px solid grey;
+}

@@ -34,16 +34,14 @@ router.get("/:id", (req, res) => {
 
 //VOTE
 router.put("/:id", (req, res) => {
-  console.log("Updated ID:", req.params);
-  console.log("Updated Poll:", req.body);
-  console.log("Voted Item:", req.body.item);
+  // console.log("Updated ID:", req.params);
+  // console.log("Updated Poll:", req.body);
+  // console.log("Voted Item:", req.body.item);
   const votedItem = req.body.item;
   Poll.update(
     { "items._id": votedItem },
     {
-      $inc: {
-        "items.$.count": 1
-      }
+      $inc: { "items.$.count": 1 }
     },
     (err, updatedPoll) => {
       if (err) throw err;
@@ -87,7 +85,7 @@ router.get("/:id/edit", middleware.checkPollOwnership, (req, res) => {
   });
 });
 
-//UPDATE Poll
+// UPDATE Poll
 router.put("/:id/edit", (req, res) => {
   console.log("Updated ID:", req.params);
   console.log("Updated Poll:", req.body.poll);

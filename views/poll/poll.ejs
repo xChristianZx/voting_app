@@ -1,34 +1,25 @@
 <% include ../partials/header %>
-<div class="ui container right aligned">
-    <a class="ui button" href="/poll/new">New Poll</a>
-</div>    
-    <div class="ui container">
-        <h1 class="ui header center aligned">Polls</h1>
-        <% polls.map((item, i) => { %>
-            <div>
-                <h2 class="ui header center aligned">
-                    <%= polls[i].pollName %>
-                </h2>
-                <h4 class="ui header center aligned">
-                    <em> Created by
-                        <%= polls[i].author.username %>
-                    </em>
-                </h4>
-                <a href="/poll/<%= polls[i]._id %>">More Info</a>
-                <a class="ui button" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
-                <form action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
-                <button class="ui button negative">Delete</button>
-                </form>
-                <% polls[i].items.map(item => { %>
-                    <p>
-                        <%= item.name %>
-                    </p>
-                    <p>
-                        <%= item.count %>
-                    </p>
-                    <% }) %>
-            </div>
-            <% }) %>
-    </div>
 
-    <% include ../partials/footer %>
+    <div class="ui container text">
+        <h1 class="ui header dividing center aligned">Polls</h1>
+        <div class="ui items">
+            <% polls.map((item, i) => { %>
+                <div class="ui item poll-item-wrapper">
+                    <a href="/poll/<%= polls[i]._id %>">
+                        <div class="content">
+                            <h3 class="ui header">
+                                <%= polls[i].pollName %>
+                            </h3>
+                            <div class="ui buttons right floated">
+                                <a class="ui button basic mini" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
+                                <form action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
+                                    <button class="ui button basic negative mini">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% }) %>
+        </div>
+    </div>
+<% include ../partials/footer %>
