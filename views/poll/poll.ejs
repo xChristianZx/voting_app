@@ -10,12 +10,15 @@
                             <h3 class="ui header">
                                 <%= polls[i].pollName %>
                             </h3>
+                            
+                            <% if(currentUser && item.author.id.equals(currentUser._id)){ %>
                             <div class="ui buttons right floated">
                                 <a class="ui button basic mini" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
                                 <form action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
                                     <button class="ui button basic negative mini">Delete</button>
                                 </form>
                             </div>
+                            <% } %>
                         </div>
                     </a>
                 </div>
