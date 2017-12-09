@@ -4,21 +4,21 @@ const passport = require("passport");
 const User = require("../models/user");
 const middleware = require("../middleware/middleware");
 
-//HOME
+// HOME
 router.get("/", (req, res) => {
   res.render("home");
 });
 
-//REGISTER
+// REGISTER
 router.get("/register", (req, res) => {
   res.render("register");
 });
 
-//REGISTER - Create New User
+// REGISTER - Create New User
 router.post("/register", (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  const newUser = new User ({username});
+  const { username } = req.body;
+  const { password } = req.body;
+  const newUser = new User({ username });
   User.register(newUser, password, (err, user) => {
     if (err) {
       console.log(err);
@@ -30,12 +30,12 @@ router.post("/register", (req, res) => {
   });
 });
 
-//LOGIN
+// LOGIN
 router.get("/login", (req, res) => {
   res.render("login");
 });
 
-//LOGIN-Authenticate
+// LOGIN-Authenticate
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -46,7 +46,7 @@ router.post(
   })
 );
 
-//LOGOUT
+// LOGOUT
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success", "You have been successfully logged out");
@@ -54,7 +54,7 @@ router.get("/logout", (req, res) => {
 });
 
 router.get("/secret", middleware.isLoggedIn, (req, res) => {
-    res.render("secret");
-  });
-  
-  module.exports  = router;
+  res.render("secret");
+});
+
+module.exports = router;
