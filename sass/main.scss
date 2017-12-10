@@ -1,3 +1,16 @@
-body {
-  background: rgba(135, 93, 191, 1);
+
+.ui.container.home {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  & h1 {
+    margin-top: 5rem;   
+    color: rgba(72, 34, 102, 1);
+    font-size: 5rem;
+  }
+}
+
+.ui.home-message {
+  margin-top: 5rem;  
 }

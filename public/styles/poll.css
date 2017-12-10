@@ -1,3 +1,10 @@
+.ui.items.polls-list-wrapper {
+  background: white;
+  padding: 1rem;
+  margin: 1rem; }
+  .ui.items.polls-list-wrapper .ui.header {
+    color: black; }
+
 .ui.item.poll-item-wrapper {
   border-bottom: 1px solid white;
   padding: 0.5rem;

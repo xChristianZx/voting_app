@@ -1,4 +1,14 @@
-body {
-  background: #875dbf; }
+.ui.container.home {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center; }
+  .ui.container.home h1 {
+    margin-top: 5rem;
+    color: #482266;
+    font-size: 5rem; }
+
+.ui.home-message {
+  margin-top: 5rem; }
 
 /*# sourceMappingURL=main.css.map */

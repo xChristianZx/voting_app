@@ -2,7 +2,7 @@
 
     <div class="ui container text">
         <h1 class="ui header dividing center aligned">Polls</h1>
-        <div class="ui items">
+        <div class="ui items polls-list-wrapper">
             <% polls.map((item, i) => { %>
                 <div class="ui item poll-item-wrapper">
                     <a href="/poll/<%= polls[i]._id %>">

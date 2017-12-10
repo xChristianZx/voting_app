@@ -1,12 +1,21 @@
-body {
-  background: #875dbf; }
+.ui.container.home {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center; }
+  .ui.container.home h1 {
+    margin-top: 5rem;
+    color: #482266;
+    font-size: 5rem; }
+
+.ui.home-message {
+  margin-top: 5rem; }
 
 /* HEADER */
-.ui.header {
-  color: white; }
-
 nav.ui.secondary.menu {
-  background: white; }
+  background: #875dbf; }
+  nav.ui.secondary.menu a {
+    color: white; }
 
 /* Flash Messages*/
 .flash-wrapper {
@@ -15,10 +24,9 @@ nav.ui.secondary.menu {
 /* FOOTER */
 footer.ui.header {
   position: absolute;
-  background: white;
-  border-top: 2px solid #2d1f36;
+  background: #875dbf;
   bottom: 0;
-  color: #b47dff;
+  color: white;
   width: 100vw;
   padding: 0;
   margin: 0; }
@@ -26,6 +34,13 @@ footer.ui.header {
 footer.ui.header div h6 {
   padding: 0;
   margin-bottom: 0.5rem; }
+
+.ui.items.polls-list-wrapper {
+  background: white;
+  padding: 1rem;
+  margin: 1rem; }
+  .ui.items.polls-list-wrapper .ui.header {
+    color: black; }
 
 .ui.item.poll-item-wrapper {
   border-bottom: 1px solid white;
