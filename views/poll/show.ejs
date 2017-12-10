@@ -3,8 +3,9 @@
         <h2 class="ui header center aligned">
             <%= poll.pollName %>
         </h2>
+    
         <div class="ui relaxed grid">
-            <div class="six wide column">
+            <div class="voting-box six wide column">
                 <h3>
                     Vote for:
                 </h3>
@@ -28,6 +29,7 @@
                 <canvas id="chart" width="400" height="300"></canvas>
             </div>
         </div>
+
     </div>
 
     <script> 
@@ -76,4 +78,5 @@
             }
         });
     </script>
+
     <% include ../partials/footer %>
