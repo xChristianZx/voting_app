@@ -1,0 +1,19 @@
+.ui.item.poll-item-wrapper {
+  border-bottom: 1px solid white;
+  padding: 0.5rem;
+  margin: 0.5rem; }
+
+.ui.item.poll-item-wrapper:hover {
+  border-bottom: 2px solid #2d1f36; }
+
+.ui.vote-wrapper {
+  background: white;
+  padding: 1rem; }
+
+.voting-box {
+  background: #b47dff; }
+
+#chart {
+  background: white; }
+
+/*# sourceMappingURL=poll.css.map */

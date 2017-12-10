@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,0BAA2B;EACvB,aAAa,EAAE,eAAe;EAC9B,OAAO,EAAE,MAAM;EACf,MAAM,EAAE,MAAM;;AAEhB,gCAAiC;EAC/B,aAAa,EAAE,iBAAyB;;AAE1C,gBAAiB;EACf,UAAU,EAAE,KAAK;EACjB,OAAO,EAAE,IAAI;;AAGf,WAAY;EACV,UAAU,EAAE,OAAiB;;AAG/B,MAAO;EACL,UAAU,EAAE,KAAK",
+"sources": ["../../sass/poll.scss"],
+"names": [],
+"file": "poll.css"
+}
