@@ -49,8 +49,7 @@ footer.ui.header div h6 {
 .ui.item.poll-item-wrapper :hover a h3.ui.header {
   color: #b455ff; }
 
-.edit-button {
-  margin-right: 1rem;
+a.edit-button {
   color: grey; }
 
 .ui.vote-wrapper {
