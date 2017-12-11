@@ -1,28 +1,36 @@
 <% include ../partials/header %>
 
     <div class="ui container text">
-        <h1 class="ui header dividing center aligned">Polls</h1>
+        <h1 class="ui header dividing violet center aligned">
+            Polls
+            <div class="sub header">
+                <em>
+                    Choose a poll to vote on
+                </em>
+            </div>
+        </h1>
         <div class="ui items polls-list-wrapper">
             <% polls.map((item, i) => { %>
                 <div class="ui item poll-item-wrapper">
                     <a href="/poll/<%= polls[i]._id %>">
                         <div class="content">
-                            <h3 class="ui header">
-                                <%= polls[i].pollName %>
+                            <h3 class="ui header left floated">
+                                <i class="angle right icon"></i>
+                                <%= polls[i].pollName %>?
                             </h3>
-                            
+
                             <% if(currentUser && item.author.id.equals(currentUser._id)){ %>
-                            <div class="ui buttons right floated">
-                                <a class="ui button basic mini" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
-                                <form action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
-                                    <button class="ui button basic negative mini">Delete</button>
-                                </form>
-                            </div>
-                            <% } %>
+                                <div class="ui item right floated">
+                                    <a class="edit-button" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
+                                    <form class="right floated" action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
+                                        <button class="ui button basic negative mini">Delete</button>
+                                    </form>
+                                </div>
+                                <% } %>
                         </div>
                     </a>
                 </div>
                 <% }) %>
         </div>
     </div>
-<% include ../partials/footer %>
+    <% include ../partials/footer %>

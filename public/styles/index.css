@@ -43,12 +43,15 @@ footer.ui.header div h6 {
     color: black; }
 
 .ui.item.poll-item-wrapper {
-  border-bottom: 1px solid white;
   padding: 0.5rem;
   margin: 0.5rem; }
 
-.ui.item.poll-item-wrapper:hover {
-  border-bottom: 2px solid #2d1f36; }
+.ui.item.poll-item-wrapper :hover a h3.ui.header {
+  color: #b455ff; }
+
+.edit-button {
+  margin-right: 1rem;
+  color: grey; }
 
 .ui.vote-wrapper {
   background: white;
