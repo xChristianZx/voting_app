@@ -1,23 +1,24 @@
 <% include ../partials/header %>
-	<div class="ui text container">
-		<h1 class="ui header center aligned">Edit Poll</h1>
-		<div class="ui container">
-			<form class="ui form" action="/poll/<%= poll._id %>/edit?_method=PUT" method="POST">
-				<h4 class="ui dividing header">Poll Question</h4>
-				<div class="field required">
-					<input type="text" name="poll[pollName]" value="<%=poll.pollName %>">
-				</div>
-				<h4 class="ui dividing header">Items</h4>
-				<% poll.items.map((item , i) => { %>
+	<div class="page-content">
+		<div class="ui text container">
+			<h1 class="ui header violet dividing center aligned">Edit Poll</h1>
+			<div class="ui container">
+				<form class="ui form" action="/poll/<%= poll._id %>/edit?_method=PUT" method="POST">
+					<h4 class="ui dividing header">Poll Question</h4>
 					<div class="field required">
-						<input type="text" name="poll[items][<%= i %>][name]" value="<%= item.name %>">
-						<input type="number" name="poll[items][<%= i %>][count]" value="<%= item.count %>">
+						<input type="text" name="poll[pollName]" value="<%=poll.pollName %>">
 					</div>
-					<% }) %>
-						<input class="ui button" type="submit">
-						<a href="/poll">Back</a>
-			</form>
+					<h4 class="ui dividing header">Items</h4>
+					<% poll.items.map((item , i) => { %>
+						<div class="field required">
+							<input type="text" name="poll[items][<%= i %>][name]" value="<%= item.name %>">
+							<input type="number" name="poll[items][<%= i %>][count]" value="<%= item.count %>">
+						</div>
+						<% }) %>
+							<input class="ui button violet" type="submit">
+							<a href="/poll">Back</a>
+				</form>
+			</div>
 		</div>
 	</div>
-
 	<% include ../partials/footer %>

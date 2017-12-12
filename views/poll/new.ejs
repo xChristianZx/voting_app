@@ -1,30 +1,30 @@
 <% include ../partials/header %>
-    <div class="ui text container">
-        <h1 class="ui header center aligned">Create a New Poll</h1>
-        <div class="ui container">
-            <form class="ui form" action="/poll" method="POST">
-                <h4 class="ui dividing header">Poll Question</h4>
-                <div class="field required">
-                    <input type="text" name="pollName" placeholder="What is the airspeed velocity of an unladen swallow?">
-                </div>                
-                <h4 class="ui dividing header">Items</h4>
-                <div class="field required">                
-                    <input type="text" name="item" placeholder="34 mph">
-                </div>
-                <div class="field required">
-                    <input type="text" name="item" placeholder="24 mph">
-                </div>
-                <div class="field">
-                    <input type="text" name="item" placeholder="44 mph">
-                </div>
-                <div class="field">
-                    <input type="text" name="item" placeholder="What do you mean? African or European swallow?">
-                </div>
-                <input class="ui button" type="submit">
-                <a href="/poll">Back</a>
-            </form>
+    <div class="page-content">
+        <div class="ui text container">
+            <h1 class="ui header center aligned">Create a New Poll</h1>
+            <div class="ui container">
+                <form class="ui form" action="/poll" method="POST">
+                    <h4 class="ui dividing header">Poll Question</h4>
+                    <div class="field required">
+                        <input type="text" name="pollName" placeholder="What is the airspeed velocity of an unladen swallow?">
+                    </div>
+                    <h4 class="ui dividing header">Items</h4>
+                    <div class="field required">
+                        <input type="text" name="item" placeholder="34 mph">
+                    </div>
+                    <div class="field required">
+                        <input type="text" name="item" placeholder="24 mph">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="item" placeholder="44 mph">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="item" placeholder="What do you mean? African or European swallow?">
+                    </div>
+                    <input class="ui button violet" type="submit">
+                    <a href="/poll">Back</a>
+                </form>
+            </div>
         </div>
     </div>
-
-
     <% include ../partials/footer %>

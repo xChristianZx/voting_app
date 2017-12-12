@@ -1,39 +1,41 @@
 <% include ../partials/header %>
-    <div class="ui container text">
-        <h1 class="ui header dividing violet center aligned">
-            Polls
-            <div class="sub header">
-                <em>
-                    Choose a poll to vote on
-                </em>
-            </div>
-        </h1>
-        <div class="ui items polls-list-wrapper">
-            <% polls.map((item, i) => { %>
-                <div class="ui item poll-item-wrapper">
-                    <div class="content">
-                        <a href="/poll/<%= polls[i]._id %>">
-                            <h3 class="ui header left floated">
-                                <i class="angle right icon"></i>
-                                <%= polls[i].pollName %>?
-                            </h3>
-                        </a>
-                    </div>
-                    <% if(currentUser && item.author.id.equals(currentUser._id)){ %>
-
-                        <div class="ui dropdown floated right">
-                            <i class="dropdown icon"></i>
-                            <div class="menu">
-                                <a class="item edit-poll" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
-                                <form class="item" action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
-                                    <div class="item" onclick="javascript: this.parentNode.submit()">Delete</div>
-                                </form>
-                            </div>
-                        </div>
-                        <% } %>
-
+    <div class="page-content">
+        <div class="ui container text">
+            <h1 class="ui header dividing violet center aligned">
+                Polls
+                <div class="sub header">
+                    <em>
+                        Choose a poll to vote on
+                    </em>
                 </div>
-                <% }) %>
+            </h1>
+            <div class="ui items polls-list-wrapper">
+                <% polls.map((item, i) => { %>
+                    <div class="ui item poll-item-wrapper">
+                        <div class="content">
+                            <a href="/poll/<%= polls[i]._id %>">
+                                <h3 class="ui header left floated">
+                                    <i class="angle right icon"></i>
+                                    <%= polls[i].pollName %>?
+                                </h3>
+                            </a>
+                        </div>
+                        <% if(currentUser && item.author.id.equals(currentUser._id)){ %>
+
+                            <div class="ui dropdown floated right">
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <a class="item edit-poll" href="/poll/<%= polls[i]._id %>/edit">Edit</a>
+                                    <form class="item" action="/poll/<%= polls[i]._id %>?_method=DELETE" method="POST">
+                                        <div class="item" onclick="javascript: this.parentNode.submit()">Delete</div>
+                                    </form>
+                                </div>
+                            </div>
+                            <% } %>
+
+                    </div>
+                    <% }) %>
+            </div>
         </div>
     </div>
     <% include ../partials/footer %>
