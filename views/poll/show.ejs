@@ -1,12 +1,17 @@
 <% include ../partials/header %>
     <div class="ui container text">
-        <h2 class="ui header center aligned">
+        <a href="/poll">
+            <i class="angle left icon"></i>
+            Back
+        </a>
+    </div>
+    <div class="ui container text">
+        <h2 class="ui header violet dividing center aligned">
             <%= poll.pollName %>
         </h2>
-    
-        <div class="ui relaxed grid">
+        <div class="ui relaxed grid container text">
             <div class="voting-box six wide column">
-                <h3>
+                <h3 class="ui header violet">
                     Vote for:
                 </h3>
                 <form class="ui form" action="/poll/<%= poll._id %>?_method=PUT" method="POST">
@@ -14,7 +19,7 @@
                         <% poll.items.map((item,i) => { %>
                             <div class="field">
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="item" checked="" tabindex="0" class="hidden" value="<%= item._id %>">
+                                    <input type="radio" name="item" tabindex="0" class="hidden" value="<%= item._id %>">
                                     <label>
                                         <%= item.name %>
                                     </label>
@@ -22,20 +27,13 @@
                             </div>
                             <% }) %>
                     </div>
-                    <button type="submit" class="ui button blue">Vote Now!</button>
-                    <div>
-                        <a href="/poll">
-                        <i class="angle left icon"></i>
-                            Back
-                        </a>
-                    </div>
+                    <button type="submit" class="ui button violet">Vote Now!</button>
                 </form>
             </div>
             <div class="ten wide column">
                 <canvas id="chart" width="400" height="300"></canvas>
             </div>
         </div>
-
     </div>
 
     <script> 

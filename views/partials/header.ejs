@@ -28,9 +28,9 @@
                     <a class="item" href="/login">Login</a>
                     <a class="item" href="/register">Register</a>
                     <% } else { %>
-                        <a class="item">Welcome
+                        <span class="item">Welcome
                             <%= currentUser.username %>
-                        </a>
+                        </span>
                         <a class="item" href="/poll/new">New Poll</a>
                         <a class="item" href="/logout">Logout</a>
                         <% } %>

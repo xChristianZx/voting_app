@@ -3,6 +3,8 @@ nav.ui.secondary.menu {
   background: #875dbf; }
   nav.ui.secondary.menu a {
     color: white; }
+  nav.ui.secondary.menu span {
+    color: white; }
 
 /* Flash Messages*/
 .flash-wrapper {
@@ -10,13 +12,13 @@ nav.ui.secondary.menu {
 
 /* FOOTER */
 footer.ui.header {
-  position: absolute;
+  margin-top: auto;
+  margin-bottom: 0;
   background: #875dbf;
-  bottom: 0;
   color: white;
   width: 100vw;
-  padding: 0;
-  margin: 0; }
+  height: 5rem;
+  padding: 0; }
 
 footer.ui.header div h6 {
   padding: 0;

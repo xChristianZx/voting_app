@@ -5,6 +5,9 @@ nav.ui.secondary.menu {
   & a {
     color: white;
   }
+  & span {
+    color: white;
+  }
 }
 
 /* Flash Messages*/
@@ -14,13 +17,13 @@ nav.ui.secondary.menu {
 
 /* FOOTER */
 footer.ui.header {
-  position: absolute;
+  margin-top: auto;
+  margin-bottom: 0;
   background: rgba(135, 93, 191, 1);
-  bottom: 0;
   color: white;
   width: 100vw;
+  height: 5rem;
   padding: 0;
-  margin: 0;
 }
 
 footer.ui.header div h6 {
