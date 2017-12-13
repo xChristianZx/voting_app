@@ -1,7 +1,7 @@
 {
   "name": "voting_app",
   "version": "1.0.0",
-  "description": "FCC Backend voting app",
+  "description": "FCC Fullstack Voting App",
   "main": "index.js",
   "scripts": {
     "watch-css": "sass --watch sass:public/styles/",
