@@ -74,4 +74,11 @@ a.edit-button {
 #chart {
   background: white; }
 
+.form-subheader {
+  font-size: .8rem;
+  font-weight: 400; }
+
+div.field.inline > input {
+  width: 93% !important; }
+
 /*# sourceMappingURL=index.css.map */

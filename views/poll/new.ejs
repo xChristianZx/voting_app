@@ -4,26 +4,46 @@
             <h1 class="ui header violet dividing center aligned">Create a New Poll</h1>
             <div class="ui container">
                 <form class="ui form" action="/poll" method="POST">
-                    <h4 class="ui dividing header">Poll Question</h4>
-                    <div class="field required">
-                        <input type="text" name="pollName" placeholder="What is the airspeed velocity of an unladen swallow?">
+                    <h4 class="ui dividing header">Poll Question -
+                        <span class="form-subheader">
+                            <em>*Required</em>
+                        </span>
+                    </h4>
+                    <div class="form-fields">
+                        <div class="required field">
+                            <input required type="text" name="pollName" placeholder="What is the airspeed velocity of an unladen swallow?">
+                        </div>
+                        <h4 class="ui dividing header">Items -
+                            <span class="form-subheader">
+                                <em>A minimum of 2 fields required</em>
+                            </span>
+                        </h4>
+                        <div class="field required">
+                            <input required type="text" name="item" placeholder="34 mph">
+                        </div>
+                        <div class="field required">
+                            <input required type="text" name="item" placeholder="24 mph">
+                        </div>
+                        <div class="field inline">
+                            <input type="text" name="item" placeholder="44 mph">
+                            <button class="circular ui icon mini button delete-field" type="button">
+                                <i class="icon minus"></i>
+                            </button>
+                        </div>
+                        <div class="field inline">
+                            <input type="text" name="item" placeholder="What do you mean? African or European swallow?">
+                            <button class="circular ui icon mini button delete-field" type="button">
+                                <i class="icon minus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <h4 class="ui dividing header">Items</h4>
-                    <div class="field required">
-                        <input type="text" name="item" placeholder="34 mph">
-                    </div>
-                    <div class="field required">
-                        <input type="text" name="item" placeholder="24 mph">
-                    </div>
-                    <div class="field">
-                        <input type="text" name="item" placeholder="44 mph">
-                    </div>
-                    <div class="field">
-                        <input type="text" name="item" placeholder="What do you mean? African or European swallow?">
-                    </div>
-                    <input class="ui button violet" type="submit">
+                    <div class="ui divider hidden"></div>
+                    <input class="ui button violet" id="form-submit-btn" type="submit">
                     <a href="/poll">Back</a>
+                    <input id="add-item-input" class="ui button right floated" value="Add Field" type="button">
+
                 </form>
+
             </div>
         </div>
     </div>
