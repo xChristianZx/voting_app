@@ -3,6 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const Poll = require("../models/poll");
 const middleware = require("../middleware/middleware");
+const Chart = require('chart.js');
 
 //POLL
 router.get("/", (req, res) => {
@@ -27,7 +28,7 @@ router.get("/:id", (req, res) => {
       req.flash("error", "Poll not found");
       res.redirect("back");
     } else {
-      res.render("poll/show", { poll: foundPoll });
+      res.render("poll/show", { poll: foundPoll, Chart: Chart });
     }
   });
 });
