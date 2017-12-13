@@ -12,7 +12,7 @@
 					<% poll.items.map((item , i) => { %>
 						<div class="field required">
 							<input type="text" name="poll[items][<%= i %>][name]" value="<%= item.name %>">
-							<input type="number" name="poll[items][<%= i %>][count]" value="<%= item.count %>">
+							<input readonly class="ui disabled input" type="number" name="poll[items][<%= i %>][count]" value="<%= item.count %>">
 						</div>
 						<% }) %>
 							<input class="ui button violet" type="submit">
