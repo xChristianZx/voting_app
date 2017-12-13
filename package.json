@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "watch-css": "sass --watch sass:public/styles/",
-    "start-js": "nodemon index.js",
-    "start": "npm-run-all -p watch-css start-js"
+    "start-js": "nodemon index.js",    
+    "start": "node index.js",
+    "dev": "npm-run-all -p watch-css start-js"
   },
   "author": "",
   "license": "ISC",
