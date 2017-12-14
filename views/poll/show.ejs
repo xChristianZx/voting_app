@@ -37,12 +37,10 @@
             </div>
         </div>
     </div>
-    <script>        
+    <script>         
         const poll = <%- JSON.stringify(poll) %>;
         const labelList = poll.items.map(item => item.name);
         const pollCount = poll.items.map(item => item.count);
-
-        $('.ui.radio.checkbox').checkbox();
 
         var ctx = document.getElementById("chart");
         var myChart = new Chart(ctx, {

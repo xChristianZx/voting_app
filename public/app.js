@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  //Semantic-ui checkbox
+  $(".ui.radio.checkbox").checkbox();
+
+  //New Poll page Add and Delete fields
   $("#add-item-input").click(function() {
     $(".form-fields").append(
       '<div class="field inline"><input type="text" name="item" placeholder="What do you mean? African or European swallow?"><button class="circular ui icon mini button delete-field" type="button"><i class="icon minus"></i></button></div>'

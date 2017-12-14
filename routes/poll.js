@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 const Poll = require("../models/poll");
 const middleware = require("../middleware/middleware");
-const Chart = require('chart.js');
+const Chart = require("chart.js");
 
 //POLL
 router.get("/", (req, res) => {
@@ -38,6 +38,7 @@ router.put("/:id", (req, res) => {
   // console.log("Updated ID:", req.params);
   // console.log("Updated Poll:", req.body);
   // console.log("Voted Item:", req.body.item);
+
   const votedItem = req.body.item;
   Poll.update(
     { "items._id": votedItem },
