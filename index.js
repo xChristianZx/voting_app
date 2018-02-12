@@ -55,6 +55,7 @@ app.use("/", indexRoutes);
 app.use("/poll", pollRoutes);
 
 const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
   console.log(`Serving on ${PORT}`);
 });
